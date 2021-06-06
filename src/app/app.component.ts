@@ -16,7 +16,8 @@ export class AppComponent {
   }
 
   getItems(){
-    return this.model.items;
+    //return this.model.items;
+    return this.model.items.filter((item: { action: any; })=> !item.action);
   }
 
 }
