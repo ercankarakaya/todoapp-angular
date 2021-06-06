@@ -10,14 +10,18 @@ export class AppComponent {
   title = 'todoapp';
 
   model = new Model();
+  isDisplay = false;
 
   getName() {
     return this.model.user;
   }
 
   getItems() {
+    if (this.isDisplay) {
+      return this.model.items;
+    }
+    return this.model.items.filter((item) => !item.action);
     //return this.model.items;
-    return this.model.items.filter((item: { action }) => !item.action);
   }
 
   addItem(value) {
